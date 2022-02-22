@@ -23,13 +23,21 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
+#converting to US dollars
+def to_usd(my_price):
+    return f"${my_price:,.2f}"
 
-#
+
 #INFO CAPTURE/INPUT
-#
+
+import datetime
+now = datetime.datetime.now()
+
 
 total_price = 0
 selected_ids = []
+total_tax= 0
+tax_included = 0
 
 while True: 
     selected_id = input("Please input a product identifier: ")  #> "g" (string)
@@ -45,7 +53,22 @@ while True:
 
 #
 #INFO DISPLAY/OUTPUT
-#
+
+print( ) 
+print( )
+print("-------------------------------------------------")
+print("-------------------------------------------------")
+print("                Annabelle's Grocery!")
+print(" PLEASE VISIT US ONLINE AT WWW.ANNABELLE'SPANTRY.COM")
+print("-------------------------------------------------")
+print("-------------------------------------------------")
+
+
+print("CHECKOUT AT: " + (now.strftime("%m/%d/%Y %I:%M %p")))
+print("-------------------------------------------------")
+print("PRODUCTS: ")
+
+
 
 #print(selected_ids)
 
@@ -54,9 +77,20 @@ for selected_id in selected_ids:
         matching_product = matching_products[0]
         total_price = total_price + matching_product["price"]
         print("Selected Product: " + matching_product["name"] + " " + str(matching_product["price"]))
+        total_tax = (total_price * 0.0875)
+        tax_included = (total_price + total_tax)
 
+#todo format as USD
 
-print("Total Price: " + str(total_price)) #todo format as USD
+print("-------------------------------------------------")
+print("TOTAL PRICE: " + str(to_usd(total_price)))
+print("TAX: " + str(to_usd(total_tax)))
+print("TOTAL: " + str(to_usd(tax_included)))
+print("-------------------------------------------------")
+print("       THANK YOU - HAVE A NICE DAY!")
+print("-------------------------------------------------")
+print("-------------------------------------------------")
+print( )
 
 
 #A grocery store name of your choice
