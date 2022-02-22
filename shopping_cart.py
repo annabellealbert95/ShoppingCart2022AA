@@ -58,7 +58,7 @@ print( )
 print( )
 print("-------------------------------------------------")
 print("-------------------------------------------------")
-print("                Annabelle's Grocery!")
+print("                Annabelle's Pantry!")
 print(" PLEASE VISIT US ONLINE AT WWW.ANNABELLE'SPANTRY.COM")
 print("-------------------------------------------------")
 print("-------------------------------------------------")
@@ -77,7 +77,6 @@ for selected_id in selected_ids:
         matching_product = matching_products[0]
         total_price = total_price + matching_product["price"]
         print("Selected Product: " + matching_product["name"] + " (" + (str(to_usd(matching_product["price"]))) + ") ")
-        #print("Selected Product: " + matching_product["name"] + " " + str(to_usd(matching_product["price"]))
         total_tax = (total_price * 0.0875)
         tax_included = (total_price + total_tax)
 
